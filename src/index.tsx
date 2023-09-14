@@ -1,6 +1,6 @@
 import React from 'react';
 import ReactDOM from 'react-dom/client';
-import { EnsureKontentAsParent } from "./EnsureKontentAsParent";
+// import { EnsureKontentAsParent } from "./EnsureKontentAsParent";
 import { IntegrationApp } from './IntegrationApp';
 
 const rootElement = document.getElementById('root');
