@@ -46,7 +46,7 @@ export const IntegrationApp: FC = () => {
     if (!config) {
       return;
     }
-    CustomElement.observeElementChanges([config.default_value], () => updateWatchedElementValue(config.textElementCodename));
+    CustomElement.observeElementChanges([config.default_value], () => updateWatchedElementValue(config.default_value));
   }, [config, updateWatchedElementValue]);
 
   const selectAssets = () =>
