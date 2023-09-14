@@ -13,8 +13,6 @@ const root = ReactDOM.createRoot(rootElement);
 
 root.render(
   <React.StrictMode>
-    <EnsureKontentAsParent>
       <IntegrationApp />
-    </EnsureKontentAsParent>
   </React.StrictMode>
 );
