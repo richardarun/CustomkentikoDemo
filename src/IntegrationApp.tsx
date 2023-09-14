@@ -16,6 +16,7 @@ export const IntegrationApp: FC = () => {
 
   useEffect(() => {
     CustomElement.init((element, context) => {
+      console.log(element.config,'kkkkkkkkkkkkkkkkkkkk')
       if (!isConfig(element.config)) {
         throw new Error('Invalid configuration of the custom element. Please check the documentation.');
       }
