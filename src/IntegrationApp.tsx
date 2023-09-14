@@ -26,7 +26,7 @@ export const IntegrationApp: FC = () => {
       setIsDisabled(element.disabled);
       setItemName(context.item.name);
       setElementValue(element.value ?? '');
-      updateWatchedElementValue(element.config.textElementCodename);
+      updateWatchedElementValue(element.config.default_value);
     });
   }, [updateWatchedElementValue]);
 
@@ -46,7 +46,7 @@ export const IntegrationApp: FC = () => {
     if (!config) {
       return;
     }
-    CustomElement.observeElementChanges([config.textElementCodename], () => updateWatchedElementValue(config.textElementCodename));
+    CustomElement.observeElementChanges([config.default_value], () => updateWatchedElementValue(config.textElementCodename));
   }, [config, updateWatchedElementValue]);
 
   const selectAssets = () =>
@@ -101,14 +101,15 @@ IntegrationApp.displayName = 'IntegrationApp';
 
 type Config = Readonly<{
   // expected custom element's configuration
-  textElementCodename: string;
+  // textElementCodename: string;
+  default_value:string
 }>;
 
 // check it is the expected configuration
 const isConfig = (v: unknown): v is Config =>
   isObject(v) &&
-  hasProperty(nameOf<Config>('textElementCodename'), v) &&
-  typeof v.textElementCodename === 'string';
+  hasProperty(nameOf<Config>('default_value'), v) &&
+  typeof v.default_value === 'string';
 
 const hasProperty = <PropName extends string, Input extends {}>(propName: PropName, v: Input): v is Input & { [key in PropName]: unknown } =>
   v.hasOwnProperty(propName);
